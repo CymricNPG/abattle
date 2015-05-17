@@ -1,0 +1,153 @@
+<html>
+<head />
+<body bgcolor="#000000" text="#ffffff" alink="#0000ff" vlink="#0000ff" style="width:370px;">
+	<h1>Help</h1>
+	Abattle is a variant of xbattle (UNIX). It is a concurrent multi-player (LAN/WLAN) battle strategy game.
+	<H2 id="menu">Main Screen</h2>
+	After starting the game you see the main screen. It contains the following buttons:
+	<ul style="list-style-type: none; padding: 1em; margin: 0;">
+		<li><img src="icons/Options.png" align="middle" style="margin-right: 1em"><a href="#option">Options</a></li>
+		<li><img src="icons/Single.png" align="middle" style="margin-right: 1em"><a href="#single">Single Player</a></li>
+		<li><img src="icons/Local.png" align="middle" style="margin-right: 1em"><a href="#multi">Multi Player</a></li>
+		<li><img src="icons/Cloud.png" align="middle" style="margin-right: 1em"><a href="#cloud">Internet Play</a></li>
+		<li><img src="icons/Impressum.png" align="middle" style="margin-right: 1em"><a href="#Impressum">Impressum</a></li>
+	</ul>
+	<H2 id="game">Game Description</H2>
+	The game board is a matrix of hexes which can be occupied by troops of various colors. The number of troops in a cell is indicated by the size of a
+	colored troop circle within that cell.
+	<br clear="none" /> The troops are commanded by holding the mouse button pressed, move the mouse to the neighbor cell and release the button  (or touch the cell and
+	move the finger in the 	direction you want to establish the movement vector). The
+	command will be acknowledged by the appearance of a movement vector, and thereafter, in each update cycle, a certain proportion of the troops will be
+	moved from the source cell to the destination cell until the source cell is exhausted. Movement vectors can be set in several directions at once, in
+	which case the movement is divided evenly between the vector directions, and the command remains active until cancelled. The movement vector remains
+	active even if the number of troops in that cell is zero. If the source cell is being captured by the enemy, all outgoing movement vectors will be removed.
+	<br clear="none" /> The game is concurrent, so that commands are given continuously by all players without waiting for turns.
+	<br clear="none" />
+
+	<H2 id="single">Single Player</h2>
+	Before starting a game, the basic game configuration must be set. The height and width of the board can be set. Higher settings result in
+	smaller cells and maybe not usable on small screens. Also the number of computer players must be selected (the computer plays very stupid!). More options can be chosen with
+	the <img src="icons/Options.png" align="middle" style="margin-left: 1em" alt="Options" width="16px" height="16px">-button.
+	<br clear="none" />
+	The gane starts after pressing the
+	<img src="icons/Join.png" align="middle" style="margin-left: 1em" alt="Start" width="16px" height="16px">-button.
+	Leave the screen by pressing the <img src="icons/Back.png" align="middle" style="margin-left: 1em" alt="Back" width="16px" height="16px">-button.
+	<div>
+		<br clear="none" />
+	</div>
+
+
+	<H2 id="multi">Multi Player</h2>
+	<br clear="none" /> There are two different modes of multi-player game types: Playing with friends within the local network (WLAN, LAN) or with friends over
+	the internet by google play.
+	<br clear="none" /> Currently <b>only</b> local gaming is working.
+	<div>
+		<br clear="none" />
+	</div>
+	<div>A new game can be started by touching the  <img src="icons/New.png" align="middle" style="margin-left: 1em" alt="New" width="16px" height="16px">-button.
+	Similar to the single player game, you have to choose the width, height and number of players. Press the
+<img src="icons/Join.png" align="middle" style="margin-left: 1em" alt="Join" width="16px" height="16px">
+	 -button to start the game. The game will be waiting for the other players to join the game.</div>
+	<div>
+		<br />
+	</div>
+	<div>Other players can join the game after the game appears in the list on their screen, which may take a while (max 5 sec). The game is displayed with the ip adress
+	and the current number of players. Press the
+	 <img src="icons/JoinActivate.png" align="middle" style="margin-left: 1em" alt="Join" width="16px" height="16px">-button to join the game.</div>
+	<div>After all players have joined, the game will start after 3 seconds.</div>
+	<H2 id="option">Options</h2>
+	<div>In the options screen you can select multiple options for the next game These options will be stored after leaving the screen. To reset the options press the
+<img src="icons/Reset.png" align="middle" style="margin-left: 1em" alt="Reset" width="16px" height="16px">-button.
+	These are the options currently existing: </div>
+	<div>
+		<br />
+	</div>
+	<div>
+		<table border="1" cellpadding="2" cellspacing="0">
+			<tbody>
+				<tr>
+					<td valign="top"><div>Your name</div></td>
+					<td valign="top"><div>Name used in the game.</div></td>
+				</tr>
+				<tr>
+					<td valign="top"><br /></td>
+					<td valign="top"><br /></td>
+				</tr>
+				<tr>
+					<td valign="top">Cell shading</td>
+					<td valign="top">Instead of one color for each height level, a color gradient will be used within different levels.</td>
+				</tr>
+				<tr>
+					<td valign="top">Cone selection</td>
+					<td valign="top">The destination cell for a movement vector will be  specified by the direction the touch is moving.</td>
+				</tr>
+				<tr>
+					<td valign="top">Army movement type</td>
+					<td valign="top">Simple = The armies will be evenly distributed among the movement vectors and the cells will be processed always in the same order.<br />
+						Random = The armies will move randomly through the vectors and the cells are being processed randomly.
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">Levels</td>
+					<td valign="top">Number of terrain levels.</td>
+				</tr>
+				<tr>
+					<td valign="top">Game Updates per s</td>
+					<td valign="top">Number of game updates/ticks per seconds to be processed.</td>
+				</tr>
+				<tr>
+					<td valign="top">Random towns in %</td>
+					<td valign="top">Percentage of cells which contain towns.</td>
+				</tr>
+				<tr>
+					<td valign="top">Armies to win %</td>
+					<td valign="top">Number of armies needed to win the game. </td>
+				</tr>
+				<tr>
+					<td valign="top">Home growth per tick</td>
+					<td valign="top">Number of armies armies produced by a home base with each tick. </td>
+				</tr>
+				<tr>
+					<td valign="top">Town growth per tick</td>
+					<td valign="top"><div>Number of armies produced by a town with each tick. </div></td>
+				</tr>
+				<tr>
+					<td valign="top">Base moving armies</td>
+					<td valign="top">Number of armies traveling per tick along a movement vector. </td>
+				</tr>
+				<tr>
+					<td valign="top">Terrain influence in %</td>
+					<td valign="top">The extent in which the terrain impacts the movement. </td>
+				</tr>
+				<tr>
+					<td valign="top">Terrain creator</td>
+					<td valign="top">Mode of world creation:<br /> Random = complete random levels<br />
+					Peaks = distribute a number of peaks in the map (more natural look) <br/>
+					Smooth Peaks = Same as peaks, but less levels.
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">Peaks in terrain in %</td>
+					<td valign="top">Only with terrain creator =peaks: Number of peaks in the map (based on the total count of cells) )</td>
+				</tr>
+			</tbody>
+		</table>
+		<div>
+			<br />
+		</div>
+	</div>
+
+	<H2 id="cloud">Internet Play</h2>
+	Currently not implemented.
+	<H2 id="Impressum">Impressum</h2>
+	Some legal details.<br/>
+	<H2>Technical Details</h2>
+	The game uses:
+	<ul>
+	<li><a href="http://www.badlogicgames.com/forum/viewtopic.php?f=22&t=8533">Holo Themed Skin</a>
+	<li><a href="http://eclipse.org/xtend/">Eclipse Xtend</a>
+	<li><a href="https://github.com/EsotericSoftware/kryonet">KryoNet</a>
+	<li><a href="http://libgdx.badlogicgames.com/">LibGDX</a>
+	</ul>
+</body>
+</html>

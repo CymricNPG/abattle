@@ -1,0 +1,21 @@
+Kryo:
+
+https://github.com/EsotericSoftware/kryonet/blob/master/license.txt
+
+LibGDX:
+
+http://www.apache.org/licenses/LICENSE-2.0.html
+
+
+Xtend:
+
+https://projects.eclipse.org/content/eclipse-public-license-1.0
+
+
+Guava:
+
+http://www.apache.org/licenses/LICENSE-2.0.html
+
+Holo Themed Skin:
+
+http://www.badlogicgames.com/forum/viewtopic.php?f=22&t=8533

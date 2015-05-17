@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.xtend.XTEND_CONTAINER"/>
+	<classpathentry kind="src" path="xtend-gen"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ABattle.Client"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ABattle.Common"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ABattle.Communication"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ABattle.Server"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ABattle.XCommon"/>
+	<classpathentry kind="lib" path="lib/logback-classic-0.9.30.jar"/>
+	<classpathentry kind="lib" path="lib/logback-core-0.9.30.jar"/>
+	<classpathentry kind="lib" path="/ABattle.Common/lib/slf4j-api-1.6.3.jar"/>
+	<classpathentry kind="lib" path="/ABattle.Android/libs/asm-4.0.jar"/>
+	<classpathentry kind="lib" path="lib/minlog-none-1.2.jar"/>
+	<classpathentry kind="lib" path="/ABattle.Android/libs/guava-18.0.jar"/>
+	<classpathentry kind="lib" path="/ABattle.Android/libs/gdx-1.5.6.jar"/>
+	<classpathentry kind="lib" path="/ABattle.Android/libs/gdx-freetype-1.5.6.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-backend-lwjgl-1.5.6.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-backend-lwjgl-natives-1.5.6.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-freetype-natives-1.5.6.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-natives-1.5.6.jar"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>

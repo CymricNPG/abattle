@@ -1,0 +1,48 @@
+apply plugin: "java"
+apply plugin: "org.xtend.xtend"
+
+sourceCompatibility = 1.6
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+sourceSets.main.java.srcDirs = [ "src/" ]
+
+dependencies {
+	compile project(":ABattle.XCommon")
+    compile project(":ABattle.Common")
+    compile project(":ABattle.Communication")
+    compile project(":ABattle.Server")
+    compile project(":ABattle.Client")
+    compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
+    compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    compile "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
+	compile "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
+	compile 'ch.qos.logback:logback-core:1.1.2'
+	compile 'ch.qos.logback:logback-classic:1.1.2'
+}
+
+
+project.ext.mainClassName = "net.npg.abattle.desktop.Main"
+project.ext.assetsDir = new File("../ABattle.Android/assets");
+
+task run(dependsOn: classes, type: JavaExec) {
+    main = project.mainClassName
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    workingDir = project.assetsDir
+    ignoreExitValue = true
+}
+
+task dist(type: Jar) {
+    from files(sourceSets.main.output.classesDir)
+    from files(sourceSets.main.output.resourcesDir)
+    from {configurations.compile.collect {zipTree(it)}}
+    from files(project.assetsDir);
+
+    manifest {
+        attributes 'Main-Class': project.mainClassName
+        attributes "Class-Path" : "."
+    }
+}
+
+dist.dependsOn classes
+

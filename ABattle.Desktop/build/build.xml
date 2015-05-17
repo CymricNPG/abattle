@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="sign" name="Create Runnable Jar for Project ABattle.Desktop with Jar-in-Jar Loader">
+
+	<target name="sign" depends="jar">
+		<signjar signedjar="deploy/abattle-signed.jar" alias="npg.net" keystore="../myKeystore" storepass="666" preservelastmodified="true"
+			jar="deploy/abattle.jar" />
+	</target>
+
+	<target name="jar">
+		<tstamp>
+			<format property="TODAY" pattern="yyyy-MM-dd HH:mm:ss" />
+		</tstamp>
+		<jar destfile="deploy/abattle.jar">
+			<manifest>
+				<attribute name="Main-Class" value="org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader" />
+				<attribute name="Rsrc-Main-Class" value="net.npg.abattle.desktop.Main" />
+				<attribute name="Class-Path" value="." />
+				<attribute name="Rsrc-Class-Path"
+					value="./ com.google.guava_15.0.0.v201403281430.jar org.eclipse.xtext.xbase.lib_2.9.0.v201504181840.jar org.eclipse.xtend.lib_2.9.0.v201504181840.jar org.eclipse.xtend.lib.macro_2.9.0.v201504181840.jar slf4j-api-1.6.3.jar gdx-1.5.6.jar gdx-tools-1.5.6.jar kryonet-2.22.0-RC1.jar minlog-none-1.2.jar kryo-3.0.1.jar objenesis-2.1.jar reflectasm-1.10.1-shaded.jar guava-18.0.jar gdx-freetype-1.5.6.jar logback-classic-0.9.30.jar logback-core-0.9.30.jar asm-4.0.jar gdx-backend-lwjgl-1.5.6.jar gdx-backend-lwjgl-natives-1.5.6.jar gdx-freetype-natives-1.5.6.jar gdx-natives-1.5.6.jar" />
+				<attribute name="Signature-Title" value="ABattle" />
+				<attribute name="Signature-Version" value="0.1" />
+				<attribute name="Signature-Vendor" value="npg.net" />
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Built-Date" value="${TODAY}" />
+			</manifest>
+			<zipfileset src="jar-in-jar-loader.zip" />
+			<fileset dir="C:/development/abattle/ABattle.Android/assets" />
+			<zipfileset dir="C:\development\eclipse-4.4.1\plugins" includes="org.eclipse.xtext.xbase.lib_2.9.0.v201504181840.jar" />
+			<zipfileset dir="C:\development\eclipse-4.4.1\plugins" includes="org.eclipse.xtend.lib_2.9.0.v201504181840.jar" />
+			<zipfileset dir="C:\development\eclipse-4.4.1\plugins" includes="org.eclipse.xtend.lib.macro_2.9.0.v201504181840.jar" />
+			<fileset dir="C:/development/abattle/ABattle.Desktop/bin/classes" />
+			<fileset dir="C:/development/abattle/ABattle.Client/bin/classes" />
+			<fileset dir="C:/development/abattle/ABattle.Common/bin/classes" />
+			<fileset dir="C:/development/abattle/ABattle.XCommon/bin/classes" />
+			<zipfileset dir="C:\development\abattle\ABattle.Common\lib" includes="slf4j-api-1.6.3.jar" />
+			<zipfileset dir="C:\development\abattle\ABattle.Android\libs" includes="gdx-1.5.6.jar" />
+			<zipfileset dir="C:\development\abattle\ABattle.Common\lib" includes="gdx-tools-1.5.6.jar" />
+			<fileset dir="C:/development/abattle/ABattle.Communication/bin/classes" />
+			<zipfileset dir="C:\development\abattle\ABattle.Android\libs" includes="kryonet-2.22.0-RC1.jar" />
+			<zipfileset dir="C:\development\abattle\ABattle.Desktop\lib" includes="minlog-none-1.2.jar" />
+			<zipfileset dir="C:\development\abattle\ABattle.Android\libs" includes="kryo-3.0.1.jar" />
+			<zipfileset dir="C:\development\abattle\ABattle.Android\libs" includes="objenesis-2.1.jar" />
+			<zipfileset dir="C:\development\abattle\ABattle.Android\libs" includes="reflectasm-1.10.1-shaded.jar" />
+			<fileset dir="C:/development/abattle/ABattle.Server/bin/classes" />
+			<zipfileset dir="C:\development\abattle\ABattle.Android\libs" includes="guava-18.0.jar" />
+			<zipfileset dir="C:\development\abattle\ABattle.Android\libs" includes="gdx-freetype-1.5.6.jar" />
+			<zipfileset dir="C:\development\abattle\ABattle.Desktop\lib" includes="logback-classic-0.9.30.jar" />
+			<zipfileset dir="C:\development\abattle\ABattle.Desktop\lib" includes="logback-core-0.9.30.jar" />
+			<zipfileset dir="C:\development\abattle\ABattle.Android\libs" includes="asm-4.0.jar" />
+			<zipfileset dir="C:\development\abattle\ABattle.Desktop\lib" includes="gdx-backend-lwjgl-1.5.6.jar" />
+			<zipfileset dir="C:\development\abattle\ABattle.Desktop\lib" includes="gdx-backend-lwjgl-natives-1.5.6.jar" />
+			<zipfileset dir="C:\development\abattle\ABattle.Desktop\lib" includes="gdx-freetype-natives-1.5.6.jar" />
+			<zipfileset dir="C:\development\abattle\ABattle.Desktop\lib" includes="gdx-natives-1.5.6.jar" />
+		</jar>
+	</target>
+</project>

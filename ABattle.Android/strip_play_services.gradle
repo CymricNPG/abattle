@@ -1,0 +1,59 @@
+// taken from https://gist.github.com/Takhion/10a37046b9e6d259bb31
+
+def toCamelCase(String string) {
+    String result = ""
+    string.findAll("[^\\W]+") { String word ->
+        result += word.capitalize()
+    }
+    return result
+}
+
+afterEvaluate { project ->
+    Configuration runtimeConfiguration = project.configurations.getByName('compile')
+    ResolutionResult resolution = runtimeConfiguration.incoming.resolutionResult
+    // Forces resolve of configuration
+    ModuleVersionIdentifier module = resolution.getAllComponents().find { it.moduleVersion.name.equals("play-services") }.moduleVersion
+    String prepareTaskName = "prepare${toCamelCase("${module.group} ${module.name} ${module.version}")}Library"
+    Task prepareTask = project.tasks.findByName(prepareTaskName)
+    File playServiceRootFolder = prepareTask.explodedDir
+    // Add the stripping to the existing task that extracts the AAR containing the original classes.jar
+    prepareTask.doLast {
+        // First create a copy of the GMS classes.jar
+        copy {
+            from(file(new File(playServiceRootFolder, "classes.jar")))
+            into(file(playServiceRootFolder))
+            rename { fileName ->
+                fileName = "classes_orig.jar"
+            }
+        }
+        // Then create a new .jar file containing everything from the first one except the stripped packages
+        tasks.create(name: "stripPlayServices" + module.version, type: Jar) {
+            destinationDir = playServiceRootFolder
+            archiveName = "classes.jar"
+            from(zipTree(new File(playServiceRootFolder, "classes_orig.jar"))) {
+//                exclude "com/google/ads/**"
+//                exclude "com/google/android/gms/actions/**"
+//                exclude "com/google/android/gms/ads/**"
+//                exclude "com/google/android/gms/analytics/**"
+//                exclude "com/google/android/gms/appindexing/**"
+//                exclude "com/google/android/gms/appstate/**"
+                exclude "com/google/android/gms/auth/**"
+//                exclude "com/google/android/gms/cast/**"
+//                exclude "com/google/android/gms/drive/**"
+//                exclude "com/google/android/gms/fitness/**"
+                exclude "com/google/android/gms/games/**"
+//                exclude "com/google/android/gms/gcm/**"
+                exclude "com/google/android/gms/identity/**"
+//                exclude "com/google/android/gms/location/**"
+//                exclude "com/google/android/gms/maps/**"
+//                exclude "com/google/android/gms/panorama/**"
+//                exclude "com/google/android/gms/plus/**"
+                exclude "com/google/android/gms/security/**"
+//                exclude "com/google/android/gms/tagmanager/**"
+//                exclude "com/google/android/gms/wallet/**"
+//                exclude "com/google/android/gms/wearable/**"
+            }
+        }.execute()
+        delete file(new File(playServiceRootFolder, "classes_orig.jar"))
+    }
+}

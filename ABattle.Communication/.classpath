@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.xtend.XTEND_CONTAINER"/>
+	<classpathentry kind="src" path="xtend-gen"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ABattle.Common"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry kind="lib" path="/ABattle.Common/lib/slf4j-api-1.6.3.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ABattle.XCommon"/>
+	<classpathentry kind="lib" path="/ABattle.Android/libs/kryonet-2.22.0-RC1.jar" sourcepath="/ABattle.Common/libsrc/kryonet-kryonet-2.20.zip"/>
+	<classpathentry kind="lib" path="/ABattle.Desktop/lib/minlog-none-1.2.jar"/>
+	<classpathentry kind="lib" path="/ABattle.Android/libs/kryo-3.0.1.jar"/>
+	<classpathentry kind="lib" path="/ABattle.Android/libs/objenesis-2.1.jar"/>
+	<classpathentry kind="lib" path="/ABattle.Android/libs/reflectasm-1.10.1-shaded.jar"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>

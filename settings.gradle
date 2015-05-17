@@ -1,0 +1,1 @@
+include 'ABattle.Desktop', 'ABattle.Android', 'ABattle.Common', 'ABattle.XCommon', 'ABattle.Server', 'ABattle.Client', 'ABattle.Communication'
